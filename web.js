@@ -4,10 +4,9 @@ var app = express.createServer(express.logger());
 
 var fs = require('fs');
 
-var buffer = new Buffer(fs.readFile('/index.html', function(err, data) {
-    if (err) {
-        return console.log(err);
-    }
+var buffer = new Buffer(fs.readFile('index.html', function(err, data) {
+    if (err)  {throw err;}
+    console.log(data);
 }););
 
 app.get('/', function(request, response) {
